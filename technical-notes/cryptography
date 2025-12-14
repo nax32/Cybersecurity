@@ -1,0 +1,122 @@
+Cryptography is the art or science of securing information by transforming it into an unreadable format to prevent unauthorized access.
+	•	It involves two main processes:
+	•	Encryption:  Converting plain text into cipher text (scrambled format).
+	•	Decryption:  Converting cipher text back into plain text.
+	•	It ensures that data remains confidential, integral, and authentic during communication.
+
+Example:
+If a sender writes a normal message (plain text), the encryption algorithm converts it into cipher text that looks like gibberish. Only the authorized receiver can decrypt it using the correct key to get back the original message.
+
+
+⚙️ 2. The Process of Encryption and Decryption
+
+Encryption
+	1.	The sender creates a plain text message (e.g., “Hello”).
+	2.	This message is passed into an encryption algorithm.
+	3.	The algorithm uses a key to transform the message into cipher text.
+	4.	The cipher text is transmitted over a communication channel (like the internet).
+
+Decryption
+	1.	The receiver receives the cipher text.
+	2.	Using the appropriate decryption algorithm and key, the cipher text is reverted to the original plain text.
+
+ The entire security of this process depends on how well the key is protected.
+
+
+
+🔑 3. Types of Cryptography
+
+Cryptography is broadly divided into two types based on the use of keys:
+
+
+
+A. Symmetric Key Cryptography (Private Key Cryptography)
+	•	Definition: The same key is used for both encryption and decryption.
+	•	Both sender and receiver must share and protect this secret key.
+	•	Since one key is used, it must remain private—hence the name private key cryptography.
+	•	Advantages:
+	•	Fast and efficient for large data.
+	•	Disadvantages:
+	•	Key distribution is difficult — both parties must have the same key securely.
+	•	If the key is compromised, the entire communication becomes insecure.
+	•	Examples: DES, AES, Blowfish.
+
+
+
+B. Asymmetric Key Cryptography (Public Key Cryptography)
+	•	Definition: Uses two different keys — a public key and a private key.
+	•	Public Key: Can be shared openly with anyone.
+	•	Private Key: Must be kept secret by its owner.
+	•	Process:
+	1.	The receiver generates a pair of keys (public and private).
+	2.	The sender obtains the receiver’s public key (via website, email, or certificate authority).
+	3.	The sender encrypts the message using the receiver’s public key.
+	4.	Only the receiver’s private key can decrypt the cipher text.
+	•	Key Concept:
+	•	What is encrypted with a public key can only be decrypted with the corresponding private key (and vice versa).
+	•	Advantages:
+	•	Solves the key distribution problem.
+	•	Disadvantages:
+	•	Slower compared to symmetric cryptography.
+	•	Examples: RSA, ECC, Diffie-Hellman.
+
+
+4. Key Terminologies Explained
+
+Term	Explanation
+Cryptography	The science of securing information by transforming it between plain text and cipher text using algorithms and keys.
+Plain Text	The original readable message or data (can be text, image, video, etc.) that needs to be protected.
+Cipher Text	The scrambled or encrypted version of the message that cannot be understood without decryption.
+Cipher	The algorithm that performs encryption and decryption operations using keys.
+Key	A secret value used by the cipher to perform encryption/decryption. It is the most critical element — if the key is leaked, all security is lost.
+Cryptanalysis	The practice of breaking ciphers or finding the key without authorization — also called code breaking. Conducted by attackers to uncover the plain text or key.
+Cryptology	The study of both cryptography and cryptanalysis — it covers how to protect data and how to break it.
+
+
+
+
+ 5. Cryptanalysis (Code Breaking)
+	•	Meaning: Cryptanalysis refers to the techniques attackers use to crack encryption without knowing the key.
+	•	Attackers may try to:
+	•	Guess or calculate the key used for encryption.
+	•	Analyze patterns in cipher text to reveal the plain text.
+	•	Even if attackers know the algorithm, the system remains secure as long as the key remains secret.
+	•	Once the key is discovered, the attacker can decrypt all communication, causing total loss of confidentiality.
+
+
+
+ 6. Cryptology
+	•	Definition: Cryptology = Cryptography + Cryptanalysis.
+	•	It is the overall field that studies how to make secure systems (cryptography) and how to test/break them (cryptanalysis).
+	•	Cryptology ensures continuous improvement of encryption methods by analyzing vulnerabilities.
+
+
+
+ 7. Real-World Example
+	•	WhatsApp Encryption:
+	•	When you send a message, it is encrypted on your device and sent to the WhatsApp server as cipher text.
+	•	The receiver’s app decrypts it automatically using the appropriate key.
+	•	This ensures that even WhatsApp itself cannot read your messages — this is called end-to-end encryption.
+
+
+ 8. Key Takeaways
+	1.	Cryptography secures data by transforming it into unreadable form.
+	2.	Symmetric cryptography uses one shared key; asymmetric cryptography uses a public–private key pair.
+	3.	Key secrecy is the foundation of all cryptographic systems.
+	4.	Cipher text is useless without the correct key.
+	5.	Cryptanalysis is the process of trying to break encryption or discover keys.
+	6.	Cryptology is the combined study of creating and breaking codes.
+
+
+ Summary Table
+
+Concept	Purpose / Function
+Cryptography	Securing information using encryption/decryption.
+Plain Text	Original readable data.
+Cipher Text	Encrypted, unreadable data.
+Cipher	Algorithm used to encrypt/decrypt.
+Key	Secret value that enables encryption/decryption.
+Symmetric Cryptography	Uses one secret key (fast, but risky if key leaks).
+Asymmetric Cryptography	Uses public/private key pair (secure but slower).
+Cryptanalysis	Code breaking – trying to find the key or plain text.
+Cryptology	The field combining cryptography + cryptanalysis.
