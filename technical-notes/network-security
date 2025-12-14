@@ -1,0 +1,241 @@
+What Is the Network Security Model?
+
+The Network Security Model defines how data is securely transmitted between two communicating entities (usually a sender and receiver) over an untrusted network — like the Internet.
+
+It’s a conceptual blueprint that shows:
+	•	Who is involved in the communication,
+	•	What components provide security, and
+	•	Where attacks and defenses exist.
+
+1. Sender (Source)
+
+The system or person sending the data.
+It must ensure the message is secure before sending — by applying encryption, authentication, or integrity mechanisms.
+
+
+2. Receiver (Destination)
+
+The system or person receiving the data.
+It must be able to verify, decrypt, and validate the authenticity and integrity of the received message.
+
+
+
+3. Transmission Medium
+
+Usually an insecure network (like the Internet or LAN).
+This is where attackers might intercept, modify, or replay data.
+
+
+
+4. Security Services
+
+These protect data during transmission.
+As per the OSI Security Architecture, they include:
+	•	Confidentiality — Prevent unauthorized access.
+	•	Authentication — Verify identity.
+	•	Integrity — Ensure data is not altered.
+	•	Access Control — Restrict unauthorized use.
+	•	Non-repudiation — Prevent denial of actions.
+
+
+
+5. Security Mechanisms
+
+These are the actual tools and methods that implement the above services:
+	•	Encryption (for confidentiality)
+	•	Digital Signatures (for authentication & non-repudiation)
+	•	Hashing / MAC (for integrity)
+	•	Firewalls & Access Controls (for access control)
+	•	IDS/IPS (for intrusion detection/prevention)
+
+
+
+6. Attackers (Threat Actors)
+
+They attempt to exploit the communication channel.
+They may perform:
+	•	Passive attacks: Eavesdropping, sniffing.
+	•	Active attacks: Spoofing, tampering, DoS.
+
+(Real-World Scenario)
+When you log in to your bank website:
+	1.	Your browser (sender) encrypts login info using HTTPS (SSL/TLS).
+	2.	The message travels over the Internet (insecure channel).
+	3.	The bank’s server (receiver) decrypts it and verifies its integrity.
+	4.	Security mechanisms:
+	•	Encryption → confidentiality
+	•	Digital certificate → authentication
+	•	Hashing → integrity
+	•	Logs → accountability
+
+This is exactly how the Network Security Model works in real life.
+
+
+ Introduction
+
+The Network Security Model defines the structure and process through which data can be transmitted securely over an insecure communication channel such as the Internet.
+Its purpose is to ensure confidentiality, integrity, authentication, and non-repudiation during data exchange between two communicating parties — typically called the sender and receiver.
+
+Network security is essential because, during transmission, data can be intercepted, modified, or misused by attackers. Hence, a security model acts as a blueprint for protecting communication.
+
+
+
+ Objectives of the Model
+
+After understanding the model, a student should be able to:
+	1.	Understand the overall structure of a network security system.
+	2.	Identify the core components involved in securing communication.
+	3.	Describe how encryption, decryption, and key management protect data.
+	4.	Analyze the tasks involved in designing a secure communication framework.
+
+
+
+Core Components of the Network Security Model
+
+The model involves seven major elements, each playing a unique role in protecting information:
+
+
+
+1. Sender
+	•	The sender is the source of the original message (plaintext).
+	•	Before transmitting data, the sender applies a security transformation (encryption).
+	•	The goal is to convert readable information into ciphertext so that even if intercepted, it cannot be understood by unauthorized users.
+
+
+
+2. Receiver
+	•	The receiver is the intended destination for the message.
+	•	After receiving ciphertext, the receiver uses decryption to recover the original message (plaintext).
+	•	The same or a corresponding key is used, depending on whether the system is symmetric or asymmetric cryptography.
+
+
+
+3. Message (Data)
+	•	The message represents the information to be transmitted — for example, text, files, or credentials.
+	•	Before transmission, it is encrypted to prevent exposure or modification during transfer.
+
+
+4. Transmission Channel
+	•	The communication path connecting sender and receiver (e.g., Internet, Wi-Fi, LAN).
+	•	This channel is insecure by nature, meaning attackers can intercept or alter the message.
+	•	Therefore, encryption and authentication mechanisms must be applied before data is sent.
+
+
+
+5. Security Transformation
+	•	Refers to the cryptographic process that converts plaintext to ciphertext and vice versa.
+	•	Common examples include:
+	•	Symmetric Encryption: Same key for encryption and decryption (e.g., AES, DES).
+	•	Asymmetric Encryption: Different keys for encryption and decryption (e.g., RSA, ECC).
+	•	These transformations ensure that only authorized parties can interpret the message.
+
+
+
+6. Secret Key
+	•	The heart of encryption.
+	•	A secret key is a unique value shared (or generated) between sender and receiver.
+	•	It determines how encryption and decryption take place.
+	•	Protecting this key is critical — if it’s compromised, attackers can decode the entire communication.
+
+
+
+7. Security Protocols
+	•	Define rules and procedures that manage secure communication.
+	•	They specify how keys are exchanged, how messages are encrypted, and how integrity is verified.
+	•	Examples:
+	•	SSL/TLS – for securing web traffic (HTTPS)
+	•	IPSec – for securing network layer communications
+	•	SSH – for secure remote access
+	•	PGP – for secure email communication
+
+
+
+ Process Flow (Step-by-Step)
+	1.	Message Creation
+The sender prepares the plaintext message to be transmitted.
+	2.	Encryption Process
+The message is encrypted using an algorithm and a key, converting it into unreadable ciphertext.
+	3.	Transmission through the Channel
+The encrypted message travels through the insecure network.
+Even if intercepted, the data remains unreadable without the correct key.
+	4.	Reception by Receiver
+The receiver obtains the ciphertext message.
+	5.	Decryption Process
+Using the same or related key, the receiver decrypts the ciphertext to obtain the original plaintext.
+	6.	Validation & Verification
+The receiver checks message integrity and authenticity to ensure the data was not altered or forged.
+
+
+
+ Security Requirements / Goals
+
+Every network security model aims to fulfill these four essential principles:
+
+Security Principle	Purpose	Example Mechanism
+Confidentiality	Ensure only authorized users can read the data.	Encryption (AES, RSA)
+Integrity	Ensure the message isn’t altered during transmission.	Hashing (SHA-256, MD5), Message Authentication Code (MAC)
+Authentication	Verify the identity of sender and receiver.	Digital Signatures, Certificates
+Non-Repudiation	Prevent denial of sending or receiving a message.	Digital Signatures, Audit Trails
+
+
+
+
+Example Scenario – Online Banking
+
+When you log in to your online banking account:
+	•	The client (sender) enters credentials → encrypted using SSL/TLS.
+	•	The server (receiver) decrypts and verifies identity.
+	•	The bank’s digital certificate (issued by a third party) confirms authenticity.
+	•	This ensures:
+	•	Data is confidential (no eavesdropping),
+	•	Message integrity (no tampering),
+	•	Authentication (you are genuine),
+	•	Non-repudiation (actions are verifiable).
+
+
+
+ Internal and External Security Controls
+
+To safeguard systems comprehensively, two levels of control exist:
+
+A. Internal Controls
+	•	Operate within the organization.
+	•	Examples:
+	•	Access Control Policies
+	•	Antivirus & Firewalls
+	•	Security Auditing Systems
+	•	Intrusion Detection Systems (IDS)
+
+B. External Controls
+	•	Defend against outside attacks from hackers or malware.
+	•	Examples:
+	•	Firewalls
+	•	Network Security Gateways
+	•	VPNs (Virtual Private Networks)
+
+
+
+Gatekeeper Function
+	•	Acts as a monitor and filter between the internal network and the external world.
+	•	Checks incoming and outgoing traffic to determine whether:
+	•	It’s legitimate or malicious,
+	•	It violates security policies, or
+	•	It contains malware or viruses.
+	•	This helps prevent intrusions and maintain system integrity.
+
+
+
+ Threats in the Network Security Model
+
+Type	Description	Example
+Internal Threats	Originating within the organization; may involve insider misuse or human error.	An employee leaking sensitive data.
+External Threats	Originating from outside; involve unauthorized access or attacks.	Hackers intercepting network traffic.
+
+🧠 Conclusion
+
+The Network Security Model provides a structured and logical approach for secure communication between two parties in a network.
+It ensures that data confidentiality, integrity, and authenticity are preserved throughout transmission.
+
+By combining encryption algorithms, security protocols, and key management, this model forms the foundation of modern network security systems such as HTTPS, VPNs, and email encryption.
+
+Understanding this model helps cybersecurity students and professionals design secure systems, analyze vulnerabilities, and implement robust defense mechanisms in any networked environment.
