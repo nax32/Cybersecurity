@@ -43,5 +43,5 @@ The captured packets were analyzed to observe:
 
 ---
 
-## ✅ Conclusion
+## Conclusion
 This lab provides a clear comparison between HTTP and HTTPS traffic and demonstrates the critical role of encryption in securing web communications. Understanding this difference is fundamental for detecting network attacks and designing secure systems.
