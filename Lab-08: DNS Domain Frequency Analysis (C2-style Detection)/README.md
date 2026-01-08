@@ -1,75 +1,106 @@
-# Lab-08: DNS Domain Frequency Analysis (C2-Style Detection)
+# Lab-08: DNS Domain Frequency Analysis (C2-style Detection)
 
 ## Objective
 
-The objective of this lab is to analyze **DNS traffic** captured in a PCAP file and identify **potential Command-and-Control (C2) communication patterns** using Python.
+The objective of this lab is to analyze DNS traffic from a packet capture (PCAP) file and identify **potential Command-and-Control (C2) communication patterns** using Python.
 
-This lab focuses on detecting **abnormal domain access behavior**, such as:
+This lab expands on basic DNS frequency analysis by incorporating:
 
-- Excessive DNS queries to the same domain
-- Beaconing-like communication patterns
-- Domains that may indicate malware or automated activity
+- DNS query timestamps
+- Source IP to domain relationships
+- Detection of periodic (beaconing) behavior
 
-Python is used as a **defensive analysis tool** in combination with **tshark** to extract and process DNS data.
+The goal is to demonstrate how **simple Python automation** can support **real-world defensive network monitoring**.
+
+---
+
+## Background
+
+Malware often relies on **DNS-based communication** to reach its Command-and-Control (C2) infrastructure. Unlike normal user-driven browsing, C2 traffic typically exhibits:
+
+- Repeated queries to the same domain
+- Regular time intervals between queries (beaconing)
+- Limited domain diversity per infected host
+
+By analyzing DNS metadata, defenders can often detect suspicious activity **even when payloads are encrypted**.
 
 ---
 
 ## Tools & Technologies Used
 
 - **Python 3**
-- **tshark** (Wireshark CLI)
-- `subprocess` module
-- `collections.Counter`
-- PCAP file containing DNS traffic
-
----
-
-## Key Concepts Covered
-
-- DNS traffic analysis
-- C2-style domain behavior
-- Beaconing detection via frequency analysis
-- Python for cybersecurity automation
-- Using tshark programmatically
+- **tshark** (Wireshark command-line tool)
+- Python modules:
+  - `subprocess`
+  - `collections.Counter`
+  - `collections.defaultdict`
+  - `datetime`
+- DNS packet capture file (`dns_real.pcap`)
 
 ---
 
 ## Lab Environment
 
 - **Traffic Type:** DNS
-- **Data Source:** Packet Capture (`.pcap`)
-- **Analysis Method:** Offline (PCAP-based)
-- **Network Type:** Controlled / lab environment
+- **Data Source:** Offline PCAP file
+- **Analysis Mode:** Defensive / forensic
+- **Network Type:** Controlled lab environment
 
 ---
 
 ## Lab Workflow
 
 1. Load a DNS PCAP file
-2. Extract DNS query names using tshark
-3. Count domain frequencies using Python
-4. Flag suspicious domains based on query volume
-5. Analyze results from a defender’s perspective
+2. Extract DNS queries using `tshark`
+3. Collect:
+   - Query timestamps
+   - Source IP addresses
+   - Queried domain names
+4. Perform frequency analysis on domains
+5. Map source IPs to contacted domains
+6. Analyze query timing to detect beaconing behavior
+7. Flag suspicious domains for further investigation
+
+---
+
+## Detection Techniques Used
+
+### 1. Domain Frequency Analysis
+Identifies domains that are queried excessively, which may indicate automated or malicious behavior.
+
+### 2. Source IP → Domain Mapping
+Reveals which internal hosts are contacting which domains, helping identify compromised systems.
+
+### 3. Beaconing Detection
+Analyzes time intervals between DNS queries to detect periodic communication patterns commonly used by malware.
 
 ---
 
 ## Files Included
 
-- `dns_analysis.py` – Python script for DNS frequency analysis  
-- `observations.md` – Findings and security insights  
-- `README.md` – Lab overview and methodology  
+- `dns_analysis.py`  
+  Python script that performs DNS extraction, frequency analysis, IP mapping, and beaconing detection.
+
+- `observations.md`  
+  Analysis results, findings, and defensive insights from the lab.
+
+- `README.md`  
+  Lab overview, objectives, and methodology.
 
 ---
 
 ## Ethical Notice
 
-This lab is **strictly defensive and educational**.  
-No malware, exploitation, or live attacks are performed.
+This lab is **strictly defensive and educational**.
+
+- No malware is executed
+- No exploitation is performed
+- All analysis is passive and offline
 
 ---
 
 ## Lab Status
 
-Completed  
-Defensive cybersecurity practice  
-Safe and ethical analysis
+-  Completed
+-  Defensive cybersecurity practice
+-  Educational and ethical analysis
